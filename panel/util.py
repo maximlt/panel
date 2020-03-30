@@ -12,6 +12,7 @@ import sys
 
 from collections import defaultdict, OrderedDict
 from datetime import datetime
+from distutils.version import LooseVersion
 from six import string_types
 
 try:  # python >= 3.3
@@ -21,6 +22,7 @@ except ImportError:
 
 from html import escape # noqa
 
+import bokeh
 import param
 import numpy as np
 
@@ -29,6 +31,7 @@ datetime_types = (np.datetime64, dt.datetime, dt.date)
 if sys.version_info.major > 2:
     unicode = str
 
+bokeh_version = LooseVersion(bokeh.__version__)
 
 def isfile(path):
     """Safe version of os.path.isfile robust to path length issues on Windows"""
